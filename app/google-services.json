@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "316130225854",
+    "firebase_url": "https://tradingapp-60f0c.firebaseio.com",
+    "project_id": "tradingapp-60f0c",
+    "storage_bucket": "tradingapp-60f0c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:316130225854:android:0aca94b3c4a543c2",
+        "android_client_info": {
+          "package_name": "com.datazi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "316130225854-k2gdvds2lc0cp56actduic2jge2516gs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.datazi",
+            "certificate_hash": "f500ed954ae7c5f1664f863ddc712a5a2ece1fef"
+          }
+        },
+        {
+          "client_id": "316130225854-ksihth4pod06atjjilmpt2huciqtjoq4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA01TQVdjnWzh_Q-L0dXtQSFlqDMOQiNlI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "316130225854-ksihth4pod06atjjilmpt2huciqtjoq4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
