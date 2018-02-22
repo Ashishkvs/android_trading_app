@@ -1,28 +1,25 @@
 package com.datazi;
-
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Spinner;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.PhoneAuthProvider;
-import android.support.annotation.NonNull;
-import android.widget.EditText;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.FirebaseTooManyRequestsException;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
 
@@ -35,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private Button resendButton;
     private Button signOutButton;
     private TextView statusText;
-    private Spinner stdCode;
+
 
     private String phoneVerificationId;
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks verificationStateChangedCallbacks;
@@ -54,16 +51,12 @@ public class MainActivity extends AppCompatActivity {
         resendButton = findViewById(R.id.resendButton);
         signOutButton = findViewById(R.id.signOutButton);
         statusText = findViewById(R.id.statusTextView);
-        stdCode=findViewById(R.id.stdCode);
-        stdCode.getSelectedItem().toString();
 
         verifyButton.setEnabled(false);
         resendButton.setEnabled(false);
         signOutButton.setEnabled(false);
         statusText.setText("signed Out");
         fbAuth = FirebaseAuth.getInstance();
-
-
     }
 
     public void sendCode(View view) {
@@ -89,8 +82,6 @@ public class MainActivity extends AppCompatActivity {
                 verifyButton.setEnabled(false);
                 codeText.setText("");
                 //ssignin with credentials
-
-                Intent intent=new Intent();
             }
 
             @Override
@@ -122,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(phoneVerificationId, code);
         //
         signInWithPhoneAuthCredential(credential);
+
     }
 
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
@@ -136,6 +128,8 @@ public class MainActivity extends AppCompatActivity {
                             resendButton.setEnabled(false);
                             verifyButton.setEnabled(false);
                             FirebaseUser user = task.getResult().getUser();
+
+
                         } else {
                             // Log.w(TAG, "signInWithCredential:failure", task.getException());
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
@@ -163,6 +157,14 @@ public class MainActivity extends AppCompatActivity {
         statusText.setText("Signed out");
         signOutButton.setEnabled(false);
         sendButton.setEnabled(true);
+    }
+    //call DatabaseDemo intent
+    public void callHome(View view){
+
+        //if successful
+        Intent intent=new Intent(this,DatabaseDemo.class);
+        startActivity(intent);
+
     }
 
 }
