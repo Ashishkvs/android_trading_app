@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private PhoneAuthProvider.ForceResendingToken resendingToken;
     private FirebaseAuth fbAuth;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,6 +83,8 @@ public class MainActivity extends AppCompatActivity {
                 verifyButton.setEnabled(false);
                 codeText.setText("");
                 //ssignin with credentials
+                //CALL HOME INTENT
+                callHome(); //next screen
             }
 
             @Override
@@ -128,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
                             resendButton.setEnabled(false);
                             verifyButton.setEnabled(false);
                             FirebaseUser user = task.getResult().getUser();
-
+                            callHome(); //next screen
 
                         } else {
                             // Log.w(TAG, "signInWithCredential:failure", task.getException());
@@ -158,13 +161,19 @@ public class MainActivity extends AppCompatActivity {
         signOutButton.setEnabled(false);
         sendButton.setEnabled(true);
     }
-    //call DatabaseDemo intent
-    public void callHome(View view){
+    //call HomeScreen intent
+    public void callHome(){
 
         //if successful
-        Intent intent=new Intent(this,DatabaseDemo.class);
+        Intent intent=new Intent(this,ProductActivity.class);
         startActivity(intent);
 
+    }
+
+    //Home button Button on Click being called
+    public void homeButton(View view){
+        Intent intent=new Intent(this,Home.class);
+        startActivity(intent);
     }
 
 }

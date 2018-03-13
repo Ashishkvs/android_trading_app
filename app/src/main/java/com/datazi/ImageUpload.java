@@ -25,7 +25,7 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
 
-public class DatabaseDemo extends AppCompatActivity implements View.OnClickListener {
+public class ImageUpload extends AppCompatActivity implements View.OnClickListener {
 
     private static final int PICK_IMAGE_REQUEST = 123;
     ImageView imageView;
@@ -40,6 +40,8 @@ public class DatabaseDemo extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_database_demo);
 
+        getSupportActionBar().setTitle("Image Uploader");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mStorageRef = FirebaseStorage.getInstance().getReference();
         imageView = findViewById(R.id.imageFile);
         fileChooser = findViewById(R.id.fileChooser);
@@ -72,7 +74,10 @@ public class DatabaseDemo extends AppCompatActivity implements View.OnClickListe
             progressDialog.setTitle("Uploading . . ");
             progressDialog.show();
 
+            //get Extension
 
+            //generate unique file name
+            String fileName=" "+System.currentTimeMillis();
             //Uri file = Uri.fromFile(new File("path/to/images/rivers.jpg"));
             StorageReference riversRef = mStorageRef.child("images/profile1.jpg");
 
