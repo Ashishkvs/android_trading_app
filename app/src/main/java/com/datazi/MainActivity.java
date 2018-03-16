@@ -164,16 +164,24 @@ public class MainActivity extends AppCompatActivity {
     //call HomeScreen intent
     public void callHome(){
 
-        //if successful
-        Intent intent=new Intent(this,ProductActivity.class);
+
+
+        Intent intent=new Intent(this,ProductAddActivity.class);
         startActivity(intent);
 
     }
 
     //Home button Button on Click being called
     public void homeButton(View view){
-        Intent intent=new Intent(this,Home.class);
-        startActivity(intent);
+        //HOME
+        //Intent intent=new Intent(this,Home.class);
+
+        //USER REGISTRATION
+        Intent intent=new Intent(this,UserRegistration.class);
+        intent.putExtra("phoneNumber",phoneText.getText().toString());
+      //IMAGE UPLOAD
+        //Intent intent=new Intent(this,ImageUpload.class);
+      startActivity(intent);
     }
 
 }

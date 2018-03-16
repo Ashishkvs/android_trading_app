@@ -8,6 +8,7 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -42,6 +43,7 @@ public class ImageUpload extends AppCompatActivity implements View.OnClickListen
 
         getSupportActionBar().setTitle("Image Uploader");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         mStorageRef = FirebaseStorage.getInstance().getReference();
         imageView = findViewById(R.id.imageFile);
         fileChooser = findViewById(R.id.fileChooser);
@@ -77,16 +79,18 @@ public class ImageUpload extends AppCompatActivity implements View.OnClickListen
             //get Extension
 
             //generate unique file name
-            String fileName=" "+System.currentTimeMillis();
+            String profilePicName=""+System.currentTimeMillis()+".jpg";
+            Log.i("profile pic image name",profilePicName);
             //Uri file = Uri.fromFile(new File("path/to/images/rivers.jpg"));
-            StorageReference riversRef = mStorageRef.child("images/profile1.jpg");
+            StorageReference riversRef = mStorageRef.child("profilePic/"+profilePicName);
 
             riversRef.putFile(filePath)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             // Get a URL to the uploaded content
-                            // Uri downloadUrl = taskSnapshot.getDownloadUrl();
+                            Uri downloadUrl = taskSnapshot.getDownloadUrl();
+                            Log.i("Url path",downloadUrl.toString());
                             progressDialog.dismiss();
                             Toast.makeText(getApplicationContext(), "File Uploaded", Toast.LENGTH_SHORT).show();
                         }

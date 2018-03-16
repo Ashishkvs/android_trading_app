@@ -27,11 +27,14 @@
             android:name=".ImageUpload"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".ProductActivity"
+            android:name=".ProductAddActivity"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".PicassoDemo" />
         <activity android:name=".MultipleImageUpload" />
-        <activity android:name=".DatabaseRead"></activity>
+        <activity android:name=".DatabaseRead" />
+        <activity android:name=".UserAccountActivity" />
+        <activity android:name=".AllProductActivity" />
+        <activity android:name=".UserRegistration"></activity>
     </application>
 
 </manifest>

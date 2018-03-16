@@ -3,7 +3,7 @@ package com.datazi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class AllProduct extends AppCompatActivity {
+public class AllProductActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

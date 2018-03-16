@@ -6,4 +6,21 @@
     android:layout_height="match_parent"
     tools:context="com.datazi.UserAccountActivity">
 
+    <TextView
+        android:id="@+id/readUser"
+        android:layout_width="208dp"
+        android:layout_height="263dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="62dp" />
+
+    <Button
+        android:id="@+id/readData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </android.support.constraint.ConstraintLayout>

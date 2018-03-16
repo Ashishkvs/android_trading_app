@@ -5,22 +5,37 @@ package com.datazi;
  */
 
 public class Product {
-
+    String id;
     String name;
-    String productId;
     String description;
-    int quantity;
-    boolean isEnabled;
+    double quantity;
+    String imageUrl;
+    boolean enable;
 
-    public Product() {
 
-    }
-
-    public Product(String name, String productId, String description, int quantity) {
+    public Product(String id, String name, String description, double quantity, String imageUrl,boolean enable) {
+        this.id = id;
         this.name = name;
-        this.productId = productId;
         this.description = description;
         this.quantity = quantity;
+        this.imageUrl=imageUrl;
+        this.enable = enable;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -31,14 +46,6 @@ public class Product {
         this.name = name;
     }
 
-    public String getProductId() {
-        return productId;
-    }
-
-    public void setProductId(String productId) {
-        this.productId = productId;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -47,19 +54,19 @@ public class Product {
         this.description = description;
     }
 
-    public int getQuantity() {
+    public double getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(double quantity) {
         this.quantity = quantity;
     }
 
-    public boolean isEnabled() {
-        return isEnabled;
+    public boolean isEnable() {
+        return enable;
     }
 
-    public void setEnabled(boolean enabled) {
-        isEnabled = enabled;
+    public void setEnable(boolean enable) {
+        this.enable = enable;
     }
 }

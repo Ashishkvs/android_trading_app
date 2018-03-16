@@ -16,7 +16,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class ProductActivity extends AppCompatActivity {
+public class ProductAddActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
 
     private Button addProductButton;
@@ -61,12 +61,12 @@ public class ProductActivity extends AppCompatActivity {
         String productId = mDatabase.push().getKey();
         //Fetch product info from UI
 
-        int productQty = Integer.parseInt(editProductQty.getText().toString());
+        double productQty = Double.parseDouble(editProductQty.getText().toString());
         String productName = editProductName.getText().toString();
         String productDesc = editProductDescription.getText().toString();
 
         // creating product object with above extracted value
-        Product product = new Product(productId, productName, productDesc, productQty);
+        Product product = new Product(productId,productName,productDesc,productQty,"image url ",false);
 
         // pushing Product to 'product' node using the productId
         mDatabase.child(productId).setValue(product);
